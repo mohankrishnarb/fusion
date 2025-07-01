@@ -1,0 +1,48 @@
+<section class="todoWrapper">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="todoList">
+                    <div class="todoHeader">
+                        <p>todo-list works!</p>
+                    </div>
+                    <div class="todoBody bg-white rounded mx-3 my-3 p-3 shadow">
+                        <div class="row g-3">
+                            <div class="enterTask">
+                                <div class="textInput col-auto">
+                                    <p class="formText">
+                                        <mat-form-field appearance="outline" color="primary">
+                                            <mat-label>Add New Task</mat-label>
+                                            <input matInput placeholder="What needs to be done....?" [(ngModel)]="newTask">
+                                            <mat-icon matSuffix color="primary" (click)="addTask()">send</mat-icon>
+                                        </mat-form-field>
+                                    </p>                                    
+                                </div>                             
+                            </div>
+                        </div>
+                        <ul>
+                            <li *ngFor="let item of todolist, let i = index">
+                                <div class="displayListItem mb-4">
+                                    <div class="listItem listItemCheckbox col-04">
+                                        <mat-checkbox (change)="toggleCompleted(i)"></mat-checkbox>
+                                    </div>
+                                    <div class="listItem listItemText col-04">
+                                        <span class="listedItemText">{{item.task}}</span>
+                                    </div>
+                                    <div class="listItem listItemButton col-04">
+                                        <div class="">
+                                            <mat-icon class="text-primary">edit</mat-icon>
+                                        </div>
+                                        <div class="listItemIcon">
+                                            <mat-icon class="text-danger" (click)="deleteTask(item.id)">delete</mat-icon>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
